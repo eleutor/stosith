@@ -28,3 +28,7 @@ O cliente (propietario do dominio) poderá:
 ### Un cliente se rexistra
 a) Se amosa un formulario pedindo os seguientes datos:
 + Nome da empresa
+
+# Melloras
++ Posibilidade de que o cliente suba a chave pública en lugar de xerar na "nube" a chave privada.
+  
