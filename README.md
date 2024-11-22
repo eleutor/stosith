@@ -15,8 +15,7 @@ O cliente (propietario do dominio) poderá:
 - Revocar un certificado
 
 ## Casos de Uso
-+ Un cliente se rexistra
-- Alta dun cliente/empresa. Simplemente se lle facilitan as credenciais de acceso, pero para poder operar necesita engadir dominios
++ Un cliente se rexistra (Alta dun cliente/empresa. Simplemente se lle facilitan as credenciais de acceso, pero para poder operar necesita engadir dominios)
 + Un cliente engade un dominio
 + Un cliente lista os seus certificados
 + Un cliente crea un certificado para un dominio
