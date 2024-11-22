@@ -82,6 +82,7 @@ function totalClientes () {
 
 function infoPerfil ($usuario){
     try {
+        
         $baseConect = dbConnect();
         $query = "select a.*,b.nombre as rol 
         from administradores a join roles b on a.rol_id=b.cod where username=?";
