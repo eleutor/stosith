@@ -28,8 +28,24 @@ O cliente (propietario do dominio) poderá:
 
 ### Un cliente se rexistra
 a) Se amosa un formulario pedindo os seguientes datos:
-+ Nome da empresa
++ NIF PK NN
++ Nome da empresa NN
++ Email NN
++ Dirección NN
++ Teléfono N
++ Contrasinal (poñela dúas veces)
+b) Compróbase que os datos sexan introducidos correctamente, se é así enviarase ó login automaticamente senón amosarase os erros respectivos.
+
+### Un cliente inicia sesión
+a) Amósase un mensaxe de benvida xunto cun login onde porá o seu NIF e a súa contrasinal. Comprobaremos os datos introducidos e enviados polo cliente, amosando diferentes mensaxes de erro dependendo de se se equivocou co NIF, coa contrasinal ou ambas.
++ Erro NIF: O NIF introducido é incorrecto ou non está rexistrado.
++ Erro Contrasinal: A contrasinal introducida é incorrecta, ténteo de novo.
+b) Enlace para rexistrarse por se o cliente accede ao login sen rexistrarse previamente.
+c) Se se loguea correctamente
+
 
 # Melloras
++ Habilitar a opción no login de cambiar a contrasinal por se o cliente non a lembra.
++ Á hora de que un cliente (empresa) rexistre un dominio, se comprobe que lle pertence dito dominio.
 + Posibilidade de que o cliente suba a chave pública (csr) en lugar de xeralo na "nube". 
   
