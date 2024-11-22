@@ -5,7 +5,8 @@ O propietario de un dominio poderá rexistrase e emitir e xestionar certificados
 
 Permite expedir certificados electrónicos para:
 - Cifrado e Firma de e-mail
-- Autenticación de usuarios
+- Autenticación de usuarios en servizos online
+- Creación de tarxetas de identificación para acceso e uso de equipamento 
 - Establecemento de servizos seguros (https)
 
 O cliente (propietario do dominio) poderá:
