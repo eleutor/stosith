@@ -24,11 +24,12 @@ O cliente (propietario do dominio) poderá:
 + Un cliente revoca un certificado dun dominio
 + Un cliente renova un certificado dun dominio
 + Un cliente descarga un certificado
++ Un cliente descarga a chave privada dun certificado
 
 ### Un cliente se rexistra
 a) Se amosa un formulario pedindo os seguientes datos:
 + Nome da empresa
 
 # Melloras
-+ Posibilidade de que o cliente suba a chave pública en lugar de xerar na "nube" a chave privada.
++ Posibilidade de que o cliente suba a chave pública (csr) en lugar de xeralo na "nube". 
   
