@@ -23,3 +23,7 @@ O cliente (propietario do dominio) poderá:
 + Un cliente revoca un certificado dun dominio
 + Un cliente renova un certificado dun dominio
 + Un cliente descarga un certificado
+
+### Un cliente se rexistra
+a) Se amosa un formulario pedindo os seguientes datos:
++ Nome da empresa
