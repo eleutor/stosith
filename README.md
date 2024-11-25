@@ -41,8 +41,10 @@ a) Amósase un mensaxe de benvida xunto cun login onde porá o seu NIF e a súa 
 + Erro NIF: O NIF introducido é incorrecto ou non está rexistrado.
 + Erro Contrasinal: A contrasinal introducida é incorrecta, ténteo de novo.
 b) Enlace para rexistrarse por se o cliente accede ao login sen rexistrarse previamente.
-c) Se se loguea correctamente
+c) Se se loguea correctamente amosarase de inicio, a lista de dominios ou dominio(no caso de que se acabase de rexistrar indicarase unha mensaxe conforme non ten ningún e terá un botón no cal poderá engadir un) e unha barra de navegación con diferentes opcións: perfíl, dominios, certificados vixentes (actual), certificados revocados...
 
+### Un cliente engade un dominio
+a) Ao clicar no botón "engadir dominio" desplegarase unha ventana emerxente na cal introducirá o dominio a engadir. Se os datos introducidos son correctos, engadiráselle o dominio e volverá á paxina inicial, pero esta vez apareceralle este a máis.
 
 # Melloras
 + Habilitar a opción no login de cambiar a contrasinal por se o cliente non a lembra.
