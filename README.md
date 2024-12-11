@@ -65,6 +65,13 @@ a) Se un certificado está en vigor, terá dispoñible un botón coa opción de 
 
 ## Base de datos
 
+#### Cliente
++ COD_Cliente PK
++ NombreCliente
++ Email
++ Address
+
+
 #### Dominios
 + COD_Dom PK
 + NombreDom NN
