@@ -57,6 +57,13 @@ a) Cando preme nun dominio e lista todos os certificados, co seu respectivo esta
 ### Un cliente renova un certificado dun dominio
 a) Os certificados ao xerarse asínaselle unha fecha de caducidade (distinta según o tipo de certificado) a cal ao vencer, indicará no estado "RENOVAR" para que o cliente se o renove. Deberá premer no boton de renovar e rexenarase un novo certificado pa o mesmo asunto automaticamente.
 
+### Un cliente descarga un certificado
+a) Se un certificado está en vigor, terá dispoñible un botón coa opción de descargalo. O cliente só terá que premer o botón e iniciarase a descarga do certificado.
+
+### Un cliente descarga a chave privada dun certificado
+a) Se un certificado está en vigor, terá dispoñible un botón coa opción de descargarla, ao lado do botón de descarga do certificado. O cliente só terá que premer o botón e iniciarase a descarga da chave privada.
+
+
 
 
 
