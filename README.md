@@ -63,7 +63,10 @@ a) Se un certificado está en vigor, terá dispoñible un botón coa opción de 
 ### Un cliente descarga a chave privada dun certificado
 a) Se un certificado está en vigor, terá dispoñible un botón coa opción de descargarla, ao lado do botón de descarga do certificado. O cliente só terá que premer o botón e iniciarase a descarga da chave privada.
 
+## Base de datos
 
++ Dominios
+- dad
 
 
 
