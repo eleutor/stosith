@@ -65,16 +65,16 @@ a) Se un certificado está en vigor, terá dispoñible un botón coa opción de 
 
 ## Base de datos
 
-+ Dominios:
-    COD_Dom PK
-    NombreDom NN
+#### Dominios
++ COD_Dom PK
++ NombreDom NN
 
-+ Certificados
-    COD_Cert PK
-    NombreCert NN
-    Tipo (e-mail, usuario, tarjeta identificativa, server)
-    Estado (en vigor, revocado, renovar)
-    COD_Dom FK
+#### Certificados
++ COD_Cert PK
++ NombreCert NN
++ Tipo (e-mail, usuario, tarjeta identificativa, server)
++ Estado (en vigor, revocado, renovar)
++ COD_Dom FK
     
 
 
