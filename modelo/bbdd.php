@@ -180,24 +180,24 @@ function infoTareas ($usuario,$rol) {
     return $result;
 }
 
-function infoCertificadosV ($usuario=false) {
+function infoDominios ($usuario=false) {
     try {
         $baseConect = dbConnect();
         if ($usuario) {
             $query = "select a.*,b.email as emailCliente
-            from certificados a
-            join clientes b on a.cliente_id=b.cod
+            from dominios a
+            join clientes b on a.COD_cliente=b.COD_cliente
             where b.NIF=?;";
             $sentencia = $baseConect->prepare($query);
             $sentencia->execute([$usuario]);
         }
-        else {
+        /*else {
             $query = "select a.*,b.nombreUsuario as coordinador
             from proyectos a
             join usuarios b on a.idCoord=b.idUsuario;";
             $sentencia = $baseConect->prepare($query);
             $sentencia->execute();
-        }
+        }*/
         $result = $sentencia->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
         $result = false;

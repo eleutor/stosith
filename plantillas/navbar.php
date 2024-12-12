@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm bg-body-tertiary">
     <div class="container-fluid ">
-      <h4> <span class="navbar-brand badge text-bg-warning"><?php echo $_SESSION['rol'] ?></span></h4>
+      <h4> <span class="navbar-brand badge text-bg-warning"><?php echo $_SESSION['usuario'] ?></span></h4>
       <a class="navbar-brand"><?php echo $_SESSION['usuario'] ?></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -13,22 +13,10 @@
           </button>
         </form>
         <ul class="navbar-nav me-auto mb-2 mr-2 mb-lg-0 w-100 justify-content-end">
-            <?php 
-                if (($_SESSION['rol'] == 'administrador')) {
-                  ?>        
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="./index.php?optionav=1">Clientes</a>
-                    </li>
-                    <?php  
-                }
-                if (($_SESSION['rol'] == 'cliente')) {
-                    ?>        
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="./index.php?optionav=2">Certificados revocados</a>
-                    </li>
-                    <?php
-                }
-                $infoPerfil = infoPerfil($_SESSION['usuario']);?>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./index.php?optionav=1">Clientes</a>
+          </li>
+          <?php $infoPerfil = infoPerfil($_SESSION['usuario']);?>
           
           <!--<li class="nav-item">
             <a class="nav-link" href="./index.php?optionav=3">Tareas</a>
@@ -47,12 +35,7 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-lg-end">
                 <li><a class="dropdown-item btn btn-primary" href="#" role="button" class="" data-bs-toggle="modal" data-bs-target="#infoPerfil">Perfil</a></li>
-                <?php 
-                    if ($_SESSION['rol'] == 'administrador') {
-                        ?>        
-                        <li><a class="dropdown-item" href="http://localhost/phpmyadmin/index.php" target="_blank">Base de datos</a></li>
-                        <?php
-                    }?>
+                <li><a class="dropdown-item" href="http://localhost/phpmyadmin/index.php" target="_blank">Base de datos</a></li>
                 <li><hr class="dropdown-divider"></li> 
                 <li><a class="dropdown-item" href="login/logout.php" >
                     <span class="material-symbols-outlined">logout</span>

@@ -66,21 +66,21 @@ a) Se un certificado está en vigor, terá dispoñible un botón coa opción de 
 ## Base de datos
 
 #### Cliente
-+ COD_Cliente PK
-+ NombreCliente
++ COD_Client PK
++ NameClient
 + Email
 + Address
 
 
 #### Dominios
 + COD_Dom PK
-+ NombreDom NN
++ NameDom NN
 
 #### Certificados
 + COD_Cert PK
-+ NombreCert NN
-+ Tipo (e-mail, usuario, tarjeta identificativa, server)
-+ Estado (en vigor, revocado, renovar)
++ NameCert NN
++ Type (e-mail, usuario, tarjeta identificativa, server)
++ State (en vigor, revocado, renovar)
 + COD_Dom FK
     
 

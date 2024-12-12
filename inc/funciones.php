@@ -139,14 +139,14 @@ function ShowTareas() {
 }
 
 
-function ShowCertificadosV() {
+function ShowCertificados() {
 
     $chckRole = $_SESSION['rol'];
     if ($chckRole == 'Administrador') {
-        $infoCertificadosV = infoCertificadosV();
+        $infoCertificadosV = infoDominios();
     }
     else {
-        $infoCertificadosV =  infoCertificadosV($_SESSION['usuario']);    
+        $infoCertificadosV =  infoDominios($_SESSION['usuario']);    
     }
     
         if ($infoCertificadosV) {

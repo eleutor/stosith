@@ -11,8 +11,8 @@
   }
   else {
     require_once('plantillas/navbar.php');
-    $rol = $_SESSION['rol'];
-
+    $usuario = $_SESSION['usuario'];
+  }
     ########################
     # FAILS
     ########################
@@ -54,8 +54,8 @@
     $page = isset($_GET['page']) ? $_GET['page']:1;
     
     $nent = 6;
-    
-    if ($rol == 'administrador') {
+      ShowCertificados();
+   /* if ($rol == 'administrador') {
       #header('location:vistas/indexAdmin.php');
       if (!isset($_GET['optionav'])) {
         #print_r($page);
@@ -92,7 +92,7 @@
       #header('location:vistas/indexPerson.php');
       ShowTareas();
     }
-  }
+  }*/
 
   include('plantillas/pie.php');
   ?>
@@ -150,18 +150,6 @@
             <input type="text" class="form-control" id="recipient-user">
           </div>
           <div class="mb-3">
-            <label for="recipient-cargo" class="col-form-label">Cargo</label>
-            <select class="form-select" aria-label="Default select example" id="recipient-cargo">
-              <option selected>Selecciona el cargo</option>
-              <?php 
-                $cargos = infoCargos();
-                foreach ($cargos as $c) {
-                  echo "<option value='".$c['idCargo']."'>".$c['nombreCargo']."</option>";
-                } 
-              ?>
-            </select>
-          </div>
-          <div class="mb-3">
             <label for="recipient-passwd" class="col-form-label">Contraseña:</label>
             <input type="text" class="form-control" id="recipient-passwd">
           </div>
@@ -206,20 +194,7 @@
           </div>
           <div class="mb-3">
             <label for="recipient-proyect" class="col-form-label">Proyecto</label>
-            <select class="form-select" aria-label="Default select example" id="recipient-proyect" name="proyectTarea">
-              <option selected>Selecciona el proyecto</option>
-              <?php 
-                if ($_SESSION['rol'] == "Administrador") {
-                  $proyectos = infoCertificadosV();
-                }
-                else {
-                  $proyectos = infoCertificadosV($_SESSION['usuario']);
-                }
-                foreach ($proyectos as $p) {
-                  echo "<option value='".$p['idProyecto']."'>".$p['nombre']."</option>";
-                } 
-              ?>
-            </select>
+            
           </div>
           <div class="mb-3" >
             <label for="recipient-personal" class="col-form-label">Personal asignado:</label><br> 
