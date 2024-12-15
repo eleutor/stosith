@@ -92,7 +92,7 @@ function ShowCertificados() {
             ?>
             <div class="container-fluid mt-4">
                 <div class="row justify-content-center">
-                    <div class="col-8 justify-text-center">
+                    <div class="col-11 justify-text-center">
                         <h2 class="text-warning">Os meus certificados</h2>
                         <table class='table table-hover '>
                         <thead>
@@ -107,6 +107,7 @@ function ShowCertificados() {
                             echo "<th scope='col'>Estado</th>";
                             echo "<th scope='col'>Vencemento</th>";
                             echo "<th scope='col'>Accións</th>";  
+                            echo "<th scope='col'>Descargar</th>";
 
                             ?>    
                             </tr>
@@ -126,8 +127,13 @@ function ShowCertificados() {
                                     echo "<td>
                                             <button type='button' class='btn btn-warning'>Renovar</button>
                                             <button type='button' class='btn btn-danger'>Revocar</button>
+                                            
                                         </td>"; 
-
+                                    echo "<td>
+                                        <button type='button' class='btn btn-primary'>Certificado</button>
+                                        <button type='button' class='btn btn-primary'>Chave Privada</button>                                        
+                                    </td>"; 
+                                        
 
                                 echo "</tr>";
                             }
