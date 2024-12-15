@@ -54,45 +54,20 @@
     $page = isset($_GET['page']) ? $_GET['page']:1;
     
     $nent = 6;
-      ShowCertificados();
-   /* if ($rol == 'administrador') {
-      #header('location:vistas/indexAdmin.php');
       if (!isset($_GET['optionav'])) {
         #print_r($page);
-        ShowClients($page,$nent);
+        ShowDominios($page,$nent);
       }
       elseif  ($_GET['optionav'] == 1) {
         #print_r($page);
         #print_r($nent);
-        ShowClients($page,$nent);
+        ShowDominios($page,$nent);
       }
       elseif  ($_GET['optionav'] == 2) {
-        ShowCertificadosV();
+        #print_r($page);
+        #print_r($nent);
+        ShowCertificados($page,$nent);
       }
-      elseif  ($_GET['optionav'] == 3) {
-        ShowTareas();
-      }
-    }
-    elseif ($rol == 'cliente') {
-      #header('location:vistas/indexCoord.php');
-      if (!isset($_GET['optionav'])) {
-        ShowCertificadosV();
-      }
-      elseif  ($_GET['optionav'] == 1) {
-        ShowUsers($page,$nent);
-      }
-      elseif  ($_GET['optionav'] == 2) {
-        ShowCertificadosV();
-      }
-      elseif  ($_GET['optionav'] == 3) {
-        ShowTareas();
-      }
-    }
-    elseif ($rol == 'Personal') {
-      #header('location:vistas/indexPerson.php');
-      ShowTareas();
-    }
-  }*/
 
   include('plantillas/pie.php');
   ?>
@@ -108,22 +83,42 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="addUser.php" method="POST">
+        <form action="addCert.php" method="POST">
           <div class="mb-3">
-            <label for="recipient-cargo" class="col-form-label">Cargo</label>
+            <label for="recipient-ello" class="col-form-label">Dominio</label>
+            <?php 
+            if ($_SESSION['usuario']) {?>
+              <select class="form-select" aria-label="Default select example" id="recipient-coord" name="coordProyect" required>
+                <option selected disabled>Selecciona o dominio</option>
+                <?php 
+                  $infoDominios = infoDominios($_SESSION['usuario']);
+                
+                  foreach ($infoDominios as $c) {
+                      echo "<option value='".$c['COD_Dom']."'>".$c['NombreDom']."</option>";
+                    
+                  } 
+                ?>
+                </select><?php 
+            }?>
+
+          </div>
+          <div class="mb-3">
+            <label for="recipient-cargo" class="col-form-label">Tipo</label>
             <select class="form-select" aria-label="Default select example" id="recipient-tipo" name="tipoCertificado" required>
-              <option selected>Selecciona el cargo</option>
+              <option selected>Selecciona o tipo</option>
               <option value="">email</option>
-              <option value="">web</option>
+              <option value="">server</option>
+              <option value="">tarxeta identificativa</option>
+
             </select>
           </div>
           <div class="mb-3">
-            <label for="recipient-ello" class="col-form-label">URL/E-mail:</label>
-            <input type="text" class="form-control" id="recipient-ello" name="elloCertificado" placeholder="www.ejemplo.com o user@prueba.es" required>
+            <label for="recipient-ello" class="col-form-label">URL/E-mail/DNI:</label>
+            <input type="text" class="form-control" id="recipient-ello" name="elloCertificado" placeholder="www.ejemplo.com ou user@prueba.es ou 42156854A" required>
           </div>
           <hr class="dropdown-divider">
           <div class="modal-footer">
-            <button type="submit" class="btn btn-success"><span class="material-symbols-outlined">person_add</span></button>
+            <button type="submit" class="btn btn-warning">Xerar</button>
           </div>
         </form>
       </div>
@@ -132,50 +127,31 @@
   </div>
 </div>
 
+<!--MODAL ADDdominio -->
 
-<!-- Modal infouser -->
-
-
-<div class="modal fade" id="infoUser" tabindex="-1" aria-labelledby="infoUserLabel" aria-hidden="true">
+<div class="modal fade" id="addDominio" tabindex="-1" aria-labelledby="addUserLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header bg-success text-white">
-        <h1 class="modal-title fs-5" id="infoUserLabel">Información usuario</h1>
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addUserLabel">Engadir dominio</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form action="addDom.php" method="POST">
           <div class="mb-3">
-            <label for="recipient-user" class="col-form-label">User:</label>
-            <input type="text" class="form-control" id="recipient-user">
+            <label for="recipient-ello" class="col-form-label">Nome</label>
+            <input type="text" class="form-control" id="recipient-ello" name="elloCertificado" placeholder="prueba.com" required>
           </div>
-          <div class="mb-3">
-            <label for="recipient-passwd" class="col-form-label">Contraseña:</label>
-            <input type="text" class="form-control" id="recipient-passwd">
-          </div>
-          <div class="mb-3">
-            <label for="recipient-chckpasswd" class="col-form-label">Vuelve a introducir la contraseña:</label>
-            <input type="text" class="form-control" id="recipient-chckpasswd">
-          </div>
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Nombre:</label>
-            <input type="text" class="form-control" id="recipient-name" required>
-          </div>
-          <div class="mb-3">
-            <label for="recipient-lastname" class="col-form-label">Apellidos</label>
-            <input type="text" class="form-control" id="recipient-lastname" required>
+          <hr class="dropdown-divider">
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-warning">Xerar</button>
           </div>
         </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-warning"><span class="material-symbols-outlined">brush</span></button>
-        <button type="button" class="btn btn-danger"><span class="material-symbols-outlined">delete</span></button>
-      </div>
+      
     </div>
   </div>
 </div>
-
-
 
 <!-- Modal addTarea -->
 
@@ -254,7 +230,7 @@
               <select class="form-select" aria-label="Default select example" id="recipient-coord" name="coordProyect" required>
                 <option selected disabled>Selecciona el coordinador</option>
                 <?php 
-                  $coordinadores = infoUser();
+                  $coordinadores = infoDominios($_SESSION['usuario']);
                 
                   foreach ($coordinadores as $c) {
                     if ($c['cargo'] == 'Coordinador') {

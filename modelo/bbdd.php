@@ -25,7 +25,7 @@ function checkUser ($usuario, $password){
     return $value;
 }
 
-function checkRol($usuario) {
+/*function checkRol($usuario) {
     try {
         $baseConect = dbConnect();
         $queryCliente = "
@@ -78,14 +78,13 @@ function totalClientes () {
         $result = false;
     }
     return $result;
-}
+}*/
 
 function infoPerfil ($usuario){
     try {
         
         $baseConect = dbConnect();
-        $query = "select a.*,b.nombre as rol 
-        from administradores a join roles b on a.rol_id=b.cod where username=?";
+        $query = "select * from clientes where NIF=?;";
         $sentencia = $baseConect->prepare($query);
         $sentencia->execute([$usuario]);
         $result = $sentencia->fetch(PDO::FETCH_ASSOC);
@@ -205,12 +204,19 @@ function infoDominios ($usuario=false) {
     return $result;
 }
 
-function infoCertificados () {
+function infoCertificados ($usuario=false) {
     try {
         $baseConect = dbConnect();
-        $query = "select cod, tipo from certificados;";
-        $sentencia = $baseConect->prepare($query);
-        $sentencia->execute();
+        if ($usuario) {
+            $query = "select c.*,d.NombreDom as Dominio
+            from certificados c join dominios d 
+                on c.COD_Dom=d.COD_Dom 
+            join clientes cl
+                on d.COD_Cliente=cl.COD_Cliente
+            where cl.NIF=?;";
+            $sentencia = $baseConect->prepare($query);
+            $sentencia->execute([$usuario]);
+        }    
         $result = $sentencia->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
         $result = false;

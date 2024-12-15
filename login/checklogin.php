@@ -6,11 +6,9 @@ if (isset($_POST['usuario']) and isset($_POST['password'])) {
     $usuario = $_POST['usuario'];
     $password = $_POST['password'];
     $dbUsuario = checkUser($usuario, $password);
-    /*if ($dbUsuario) {
-        $dbRole = checkRol($usuario);
+    if ($dbUsuario) {
         $_SESSION = [ 
-            "usuario" => $usuario,
-            "rol" => $dbRole,
+            "usuario" => $usuario
         ];
         header("location:../index.php");
         
@@ -18,7 +16,7 @@ if (isset($_POST['usuario']) and isset($_POST['password'])) {
     else {
         header("location:login.php?error=0");
 
-    }*/
+    }
     header("location:../index.php");
 }
 

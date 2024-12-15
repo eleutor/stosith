@@ -85,15 +85,15 @@ function ShowUsers($page,$nent) {
         }
 }
 
-function ShowTareas() {
+function ShowCertificados() {
 
-    $infoTareas =  infoTareas($_SESSION['usuario'],$_SESSION['rol']);
-        if ($infoTareas) {
+    $infoCertificados =  infoCertificados($_SESSION['usuario']);
+        if ($infoCertificados) {
             ?>
             <div class="container-fluid mt-4">
                 <div class="row justify-content-center">
                     <div class="col-8 justify-text-center">
-                        <h2 class="text-warning">Tareas</h2>
+                        <h2 class="text-warning">Os meus certificados</h2>
                         <table class='table table-hover '>
                         <thead>
                             <tr>
@@ -101,37 +101,40 @@ function ShowTareas() {
                             /*foreach ($CamposName as $cn) {
                                 echo "<th scope='col'>$cn</th>";
                             }*/
-                            echo "<th scope='col'>Nombre</th>";
-                            echo "<th scope='col'>Coordinador</th>";
-                            echo "<th scope='col'>Proyecto</th>";
-                            echo "<th scope='col'>Fecha Inicio</th>";
-                            echo "<th scope='col'>Fecha Final</th>";
+                            echo "<th scope='col'>Nome</th>";
+                            echo "<th scope='col'>Tipo</th>";
+                            echo "<th scope='col'>Dominio</th>";
+                            echo "<th scope='col'>Estado</th>";
+                            echo "<th scope='col'>Vencemento</th>";
+                            echo "<th scope='col'>Accións</th>";  
 
                             ?>    
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            foreach ($infoTareas as $values) {
-                                echo "<tr role='button' data-bs-toggle='modal' data-bs-target='#infoTareas'>";
+                            foreach ($infoCertificados as $values) {
+                                echo "<tr role='button' data-bs-toggle='modal' data-bs-target='#infoCertificados'>";
                                     #foreach ($values as $value ) {
                                     #    echo "<td>$value</td>";
                                     #}                       
-                                    echo "<td>".$values['nombre']."</td>";
-                                    echo "<td>".$values['coordinador']."</td>";
-                                    echo "<td>".$values['proyecto']."</td>";
-                                    echo "<td>".$values['fechaInicio']."</td>";
-                                    echo "<td>".$values['fechaEntrega']."</td>";        
+                                    echo "<td>".$values['NombreCert']."</td>";
+                                    echo "<td>".$values['Tipo']."</td>";
+                                    echo "<td>".$values['Dominio']."</td>";
+                                    echo "<td>".$values['Estado']."</td>";
+                                    echo "<td>".$values['FechaCaducidad']."</td>";   
+                                    echo "<td>
+                                            <button type='button' class='btn btn-warning'>Renovar</button>
+                                            <button type='button' class='btn btn-danger'>Revocar</button>
+                                        </td>"; 
+
 
                                 echo "</tr>";
                             }
                             ?>
                         </tbody>
                         </table>
-                        <?php 
-                        if ($_SESSION['rol'] != 'Personal') { ?>
-                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#addTarea">Añadir tarea</button><?php
-                        }?>
+                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#addCertificado">Xerar certificado</button>
                     </div>
                 </div>
             </div> <?php
@@ -139,22 +142,16 @@ function ShowTareas() {
 }
 
 
-function ShowCertificados() {
+function ShowDominios() {
 
-    $chckRole = $_SESSION['rol'];
-    if ($chckRole == 'Administrador') {
-        $infoCertificadosV = infoDominios();
-    }
-    else {
-        $infoCertificadosV =  infoDominios($_SESSION['usuario']);    
-    }
+        $infoDominios =  infoDominios($_SESSION['usuario']);    
     
-        if ($infoCertificadosV) {
+        if ($infoDominios) {
             ?>
             <div class="container-fluid mt-4">
                 <div class="row justify-content-center">
                     <div class="col-8 justify-text-center">
-                        <h2 class="text-warning">Certificados vigentes</h2>
+                        <h2 class="text-warning">Os teus dominios</h2>
                         <table class='table table-hover '>
                         <thead>
                             <tr>
@@ -162,32 +159,29 @@ function ShowCertificados() {
                             /*foreach ($CamposName as $cn) {
                                 echo "<th scope='col'>$cn</th>";
                             }*/
-                            echo "<th scope='col'>Tipo</th>";
-                            echo "<th scope='col'>Email</th>";
-                            echo "<th scope='col'>Fecha Inicio</th>";
-                            echo "<th scope='col'>Caducidad</th>";                         
+                            echo "<th scope='col'>Nome do dominio</th>";                                                   
+                            echo "<th scope='col'>Accións</th>";  
 
                             ?>    
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            foreach ($infoCertificadosV as $values) {
+                            foreach ($infoDominios as $values) {
                                 echo "<tr role='button' data-bs-toggle='modal' data-bs-target='#infoTareas'>";
                                     #foreach ($values as $value ) {
                                     #    echo "<td>$value</td>";
                                     #}                       
-                                    echo "<td>".$values['tipo']."</td>";
-                                    echo "<td>".$values['emailCliente']."</td>";
-                                    echo "<td>".$values['fecha_registro']."</td>";
-                                    echo "<td>".$values['fecha_caducidad']."</td>";                                         
+                                    echo "<td>".$values['NombreDom']."</td>";
+                                    echo "<td><button type='button' class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#addDominio'>Borrar</button></td>";
+                                    #echo "<td>".$values['fecha_caducidad']."</td>";                                         
 
                                 echo "</tr>";
                             }
                             ?>
                         </tbody>
                         </table>
-                        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#addCertificado">Nuevo certificado</button>
+                        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#addDominio">Engadir dominio</button>
                         
                     </div>
                 </div>
@@ -223,6 +217,7 @@ function ShowClients($page,$nent) {
                             echo "<th scope='col'>Nombre</th>";
                             echo "<th scope='col'>Email</th>";
                             echo "<th scope='col'>Direccion</th>";
+                            echo "<th scope='col'>Accións</th>";  
                             
                             ?> 
                                 
@@ -236,6 +231,7 @@ function ShowClients($page,$nent) {
                                     echo "<td>".$values['name']."</td>";
                                     echo "<td>".$values['email']."</td>";
                                     echo "<td>".$values['address']."</td>";
+                                    
                                 echo "</tr>";
                             } ?>
                         </tbody>
