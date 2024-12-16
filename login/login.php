@@ -5,7 +5,7 @@ require_once("../plantillas/encabezado.php");
 <div class="container-fluid bg-warning text-dark ">  
     <div class="row">
         <div class="column ">
-            <h1 class="display-2 text-center">stosithcA</h1>
+            <h1 class="display-2 text-center">STOSITH</h1>
         </div>
     </div>
 </div>

@@ -2,7 +2,7 @@
 require_once ('modelo/bbdd.php');
 
 
-
+/*
 function showPerfil() {
 
     $infoPerfil =  infoPerfil($_SESSION['usuario']);
@@ -19,8 +19,8 @@ function showPerfil() {
 
         }                
         
-}
-
+}*/
+/*
 function ShowUsers($page,$nent) {
     
     
@@ -83,7 +83,7 @@ function ShowUsers($page,$nent) {
                 </div>
             </div> <?php
         }
-}
+}*/
 
 function ShowCertificados() {
 
@@ -179,7 +179,7 @@ function ShowDominios() {
                                     #    echo "<td>$value</td>";
                                     #}                       
                                     echo "<td>".$values['NombreDom']."</td>";
-                                    echo "<td><button type='button' class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#addDominio'>Borrar</button></td>";
+                                    echo "<td><button type='button' class='btn btn-danger' >Borrar</button></td>";
                                     #echo "<td>".$values['fecha_caducidad']."</td>";                                         
 
                                 echo "</tr>";
@@ -204,7 +204,7 @@ function ShowDominios() {
 #####################################################################################
 ####################################
 
-function ShowClients($page,$nent) {
+/*function ShowClients($page,$nent) {
     
     
     $infoClients =  infoClients($page, $nent);
@@ -268,4 +268,4 @@ function ShowClients($page,$nent) {
                 </div>
             </div> <?php
         }
-}
+}*/
